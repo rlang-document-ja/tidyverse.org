@@ -8,7 +8,7 @@ categories:
 - パッケージ
 ---
 
-tidymodelsパッケージがCRANで公開されました 。その姉妹パッケージtidyverseと同様に、それはモデリングと分析に関連するtidyverseパッケージをインストールしてロードするために使用することができます。現在は、 broom 、 dplyr 、 ggplot2 、 infer 、 purrr 、 recipes 、 rsample 、 tibble 、およびyardstickインストールして添付しています。
+`tidymodels`パッケージが[CRAN](http://cran.r-project.org/web/packages/tidymodels)で公開されました 。その姉妹パッケージtidyverseと同様に、それはモデリングと分析に関連する`tidyverse`パッケージをインストールしてロードするために使用することができます。現在は、 [`broom`](https://broom.tidyverse.org/), [`dplyr`](http://dplyr.tidyverse.org), [`ggplot2`](https://ggplot2.tidyverse.org/), [`infer`](http://infer.netlify.com/), [`purrr`](https://purrr.tidyverse.org/), [`recipes`](https://tidymodels.github.io/recipes/), [`rsample`](https://tidymodels.github.io/rsample/), [`tibble`](https://tibble.tidyverse.org/), and [`yardstick`](https://tidymodels.github.io/yardstick/)インストールして添付しています。
 
 ```r
 library(tidymodels)
