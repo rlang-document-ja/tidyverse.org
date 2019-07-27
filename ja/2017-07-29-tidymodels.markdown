@@ -8,7 +8,7 @@ categories:
 - パッケージ
 ---
 
-`tidymodels`パッケージが[CRAN](http://cran.r-project.org/web/packages/tidymodels)で公開されました 。その姉妹パッケージtidyverseと同様に、それはモデリングと分析に関連する`tidyverse`パッケージをインストールしてロードするために使用することができます。現在は、 [`broom`](https://broom.tidyverse.org/), [`dplyr`](http://dplyr.tidyverse.org), [`ggplot2`](https://ggplot2.tidyverse.org/), [`infer`](http://infer.netlify.com/), [`purrr`](https://purrr.tidyverse.org/), [`recipes`](https://tidymodels.github.io/recipes/), [`rsample`](https://tidymodels.github.io/rsample/), [`tibble`](https://tibble.tidyverse.org/), and [`yardstick`](https://tidymodels.github.io/yardstick/)インストールして添付しています。
+`tidymodels`パッケージをCRAN上で公開しています 。姉妹パッケージ`tidyverse`と同様に、モデリングと分析のためのtidyverseパッケージをインストールしてロードすると利用可能です。現在は、 [`broom`](https://broom.tidyverse.org/), [`dplyr`](http://dplyr.tidyverse.org), [`ggplot2`](https://ggplot2.tidyverse.org/), [`infer`](http://infer.netlify.com/), [`purrr`](https://purrr.tidyverse.org/), [`recipes`](https://tidymodels.github.io/recipes/), [`rsample`](https://tidymodels.github.io/rsample/), [`tibble`](https://tibble.tidyverse.org/), や[`yardstick`](https://tidymodels.github.io/yardstick/)が同時にインストールされます。
 
 ```r
 library(tidymodels)
@@ -25,7 +25,7 @@ library(tidymodels)
 #> ✖ recipes::step() masks stats::step()
 ```
 
-`tidymodels`は*タグ付けされたパッケージの*急増するリストも含み*ます* 。これらは特定の目的のためにパッケージのセットをインストールするために使用することができます。たとえば、テキストデータを分析するための追加の整然としたツールが必要な場合は、次のようにします。
+`tidymodels`はパッケージのリストを内包していて、分析の目的に応じてインストール可能なパッケージを検索できます。たとえば、テキストデータを分析するための整然としたツールが必要な場合は、次のようにします。
 
 ```r
 tag_attach("text analysis")
@@ -33,16 +33,16 @@ tag_attach("text analysis")
 #> ✔ tidytext 0.1.9     ✔ keras    2.1.6
 ```
 
-新しいパッケージがリリースされるたびに、これらのタグはそれぞれのバージョンの`tidymodels`で更新されます。
+`tidymodels`のバージョンアップに応じて、パッケージのリストも更新されます。
 
-一方向モデリングパッケージの数は増え続けています。開発期間のいくつかのパッケージは次のとおりです。
+tidyverseなモデリングパッケージは開発され続けており、その数が増えています。一方向モデリングパッケージの数は増え続けています。開発中も含めて、次のようなパッケージもあります。
 
-- [`parsnip`](https://topepo.github.io/parsnip) ：モデルへの統一インターフェースこれにより、異なるパッケージ間で1つの標準化されたモデル関数を持ち、モデル間でパラメータ名を調和させることによって、記憶する必要がある構文上の細部の量を大幅に減らすことができます。
+- [`parsnip`](https://topepo.github.io/parsnip) ：モデルへの統一的なインターフェースを提供します。異なるパッケージであっても関数を標準化させる機能を持ち、パラメータ名も統一させることで、パッケージが持つ特有の構文を記憶する手間を大幅に減らします。
 
-- [`dials`](https://tidymodels.github.io/dials) ：パラメータを調整するためのツール。 `dials`は、チューニングパラメータ値を作成および検証するためのオブジェクトとメソッド、およびグリッド検索ツールが含まれています。これは、 `parsnip`シームレスに連携するように設計されています。
+- [`dials`](https://tidymodels.github.io/dials) ：パラメータチューニングのためのツール。 `dials`は、パラメータを作成および検証することができ、グリッドサーチをする機能もあります。`parsnip`にシームレスな連携を前提に設計しています。
 
-- [`embed`](https://topepo.github.io/embed) ： `recipes`用のアドオンパッケージ。これは、尤度符号化やエンティティ埋め込みなどの教師付き方法を使用して高濃度のカテゴリカル予測子を効率的に符号化するために使用できます。
+- [`embed`](https://topepo.github.io/embed) : recipes用のアドオンパッケージ。これは、Likelihood EncodingやEntity Embeddingのような教師あり学習を使用して、クラスの多い多クラス分類を効率的に符号化するために使用します。
 
-- [`modelgenerics`](https://tidymodels.github.io/modelgenerics) ：開発者向けツールこの軽量パッケージは、パッケージ間で使用されるクラス用の一連の汎用メソッドを提供することによって、パッケージの依存関係を減らすのに役立ちます。例えば、あなたがあなたのモデルのために新しい`tidy`方法を作成しているなら、このパッケージは`broom` （およびその依存関係）の代わりに使用することができます。
+- [`modelgenerics`](https://tidymodels.github.io/modelgenerics) : 開発者向けツール。この軽量パッケージは、パッケージを跨って利用される汎用的なメソッドを提供することによって、パッケージの依存関係を減らすのに役立ちます。例えば、新しい`tidy`な方法を自身のモデルのために作成しているなら、`broom`（およびその依存関係）を使うのがオススメです。
 
-最新の情報については、 [Tidymodels組織ページ](https://github.com/tidymodels)を[ご覧ください](https://github.com/tidymodels) 。
+最新の情報については、 [Tidymodels organization page](https://github.com/tidymodels)をご覧ください 。
