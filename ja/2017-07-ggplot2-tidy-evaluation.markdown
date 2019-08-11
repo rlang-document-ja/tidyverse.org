@@ -4,7 +4,7 @@ date: '2018-07-24'
 slug: ggplot2-tidy-evaluation
 author: Mara Averick
 categories:
-- package
+- パッケージ
 description: ggplot2 3.0.0における整然とした評価をする
 photo:
   url: https://unsplash.com/photos/8KfCR12oeUM
@@ -134,9 +134,9 @@ p + wrap_cut(drat)
 
 <img src="/articles/2017-07-ggplot2-tidy-evaluation_files/figure-html/wrap-cut-1.png" width="700px" style="display: block; margin: auto;">
 
-You will also need to use [rlang](http://rlang.r-lib.org/) tools if computing on the mapping of an existing ggplot2 object.
+既存のggplot2オブジェクトのマッピングを計算する場合は、 [rlang](http://rlang.r-lib.org/)ツールを使用する必要もあります。
 
-## Developer facing changes
+## 開発者向けの変更
 
 ggplot2の上に拡張パッケージを構築する場合、整然とされた評価の導入により、 `aes()`が使用するデータ構造が根本的に変更されることに注意する必要があります。簡単に言うと：
 
@@ -155,7 +155,7 @@ mapping$colour
 #> [1] "smoothed"
 ```
 
-## Getting help
+## 助けを得る
 
 整然とされた評価に慣れていないなら、進行中の第2版Advanced R、特に[メタプログラミング](https://adv-r.hadley.nz/meta.html)のセクションで学ぶのが最適です。また、Lionel HenryによるRStudioの[整然とした評価のウェビナー](https://www.rstudio.com/resources/webinars/tidy-eval/) 、または（忙しい人は）Hadleyのビデオ： [5分間の整然とした評価のウェビナー](https://www.youtube.com/watch?v=nERXS3ssntw)をチェックしてください。
 
