@@ -4,7 +4,7 @@ date: '2018-07-24'
 slug: ggplot2-tidy-evaluation
 author: Mara Averick
 categories:
-- パッケージ
+- package
 description: ggplot2 3.0.0における整然とした評価をする
 photo:
   url: https://unsplash.com/photos/8KfCR12oeUM
