@@ -15,35 +15,26 @@ photo:
 
 ## 前書き
 
-We're pleased (and a little embarrassed) to announce the release of dplyr 0.8.3 on CRAN 😬 !
+CRANでのdplyr 0.8.3のリリースを発表できてうれしく思います（少し恥ずかしいです）！
 
 これは、コミュニティがTwitterで報告したように、パフォーマンスの大幅な低下を修正するための[0.8.2の](https://www.tidyverse.org/articles/2019/06/dplyr-0-8-2/) 1週間後の緊急リリースです。
 
 ## ノストラカルパ
 
-This [commit](https://github.com/tidyverse/dplyr/commit/036de90fbf9e3eef72c015982a5d1294d2157a2c#r34165423) was pushed to
-[dplyr](https://dplyr.tidyverse.org) on May 10, as a seemingly very harmless update to better support list
-columns being used in [summarise()](https://dplyr.tidyverse.org/reference/summarise.html).
+このコミットは5月10日にdplyrにプッシュされました。これは、 summarise() で使用されるリスト列をより適切にサポートするための、一見非常に無害な更新です。
 
-In addition to the changes that were necessary to fix the problem reported in [issue 4349](https://github.com/tidyverse/dplyr/issues/4349),
-the commit removed two lines of code in a very central piece of [dplyr](https://dplyr.tidyverse.org) infrastructure,
-namely its data mask layout.
+問題4349で報告された問題を修正するために必要な変更に加えて、コミットはdplyrインフラストラクチャーの非常に中心的な部分、つまりデータマスクレイアウトの2行のコードを削除しました。
 
 [dplyr 0.8.0の](https://www.tidyverse.org/articles/2019/02/dplyr-0-8-0/)一部として、データマスクレイアウトの内部構造が劇的に変わり、2つの環境からなるデータマスクが使用されています。最初の環境には、処理するデータフレームの各列のアクティブなバインディングのセットが含まれます。最初のグループで変数が式で初めて使用されると、アクティブなバインディングが解決され、その関連スライスが取得されますカラム。これは多少費用のかかる操作であるため、後続のグループはデータマスクの2番目の環境を使用して、必要であることがわかっている列のスライスを積極的に実体化します。
 
-The two lines that were removed by mistake are central to this system, without them each group would
-invoke the costly active binding. Even worse, the list of indices of columns to be rematerialised,
-as maintained by a vector of integers, would grow each time, so on the second group the column slice would
-be materialized twice to be then forgotten, on the third group three times ...
+誤って削除された2行はこのシステムの中心であり、これらの行がないと、各グループはコストのかかるアクティブなバインディングを呼び出します。さらに悪いことには、整数のベクトルによって維持されるように、再実体化されるべき列のインデックスのリストは毎回大きくなるので、2番目のグループでは列スライスは2回実体化され、次に3番目のグループでは3回忘れられます。
 
 古典的な恥ずかしい二次性能回帰。
 
 ## ありがとう
 
-Thanks to the community for quickly alerting us of the situation, the 🐌 had been
-in the code base for almost two months but we had not noticed because our continuous
-integration protects us from regressions in functionality, but not regression in performance.
+状況を迅速に通知してくれたコミュニティのおかげで、バグはほぼ2か月間コードベースにありましたが、継続的な統合により機能の低下から保護されているため気付かず、パフォーマンスの低下はありませんでした。
 
 将来的にはその方向で調査する可能性があります。このリリースのすべての貢献者に感謝します。
 
-[@ajkroeg](https://github.com/ajkroeg), [@bschneidr](https://github.com/bschneidr), [@DavisVaughan](https://github.com/DavisVaughan), [@dhicks](https://github.com/dhicks), [@gvfarns](https://github.com/gvfarns), [@IndrajeetPatil](https://github.com/IndrajeetPatil), [@krlmlr](https://github.com/krlmlr), [@romainfrancois](https://github.com/romainfrancois), and [@shane-kercheval](https://github.com/shane-kercheval)
+@ajkroeg 、 @bschneidr 、 @DavisVaughan 、 @dhicks 、 @gvfarns 、 @IndrajeetPatil 、 @krlmlr 、 @romainfrancois 、および @shane-kercheval
